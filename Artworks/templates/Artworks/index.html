@@ -1,0 +1,24 @@
+{{% {% load static %}%}}
+{{ % extends 'base.html'%}}
+{% block content %}
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Image</th>
+                <th>Daily View</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Artwork in Artworks %}
+            <tr>
+                <td>{{ Artwork.title }}</td>
+                <td>{{ Artwork.artist }}</td>
+                <td>{{ Artwork.image }}</td>
+                <td>{{ Artwork.daily_views }}</td>
+                <td><img src="{% url 'artwork_images' 'j.pg' %}"></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endblock %}
